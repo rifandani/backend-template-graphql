@@ -1,0 +1,26 @@
+# exclamation mark means that this field is REQUIRED and can never be NULL / contains NULL elements inside array
+
+scalar DateTime
+
+type Query {
+  getUsers: [User!]!
+  getUser(id: ID!): User
+}
+
+type Mutation {
+  addUser(userInput: UserInput): User!
+  deleteUser(id: ID!): User!
+}
+
+input UserInput {
+  name: String
+  age: Int
+}
+
+type User {
+  id: ID!
+  name: String!
+  age: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
